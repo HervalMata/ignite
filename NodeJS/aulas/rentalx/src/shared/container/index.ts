@@ -3,8 +3,9 @@ import { ICategoriesRepository } from "../../modules/cars/repositories/ICategori
 import { CategoriesRepository} from "../../modules/cars/repositories/Implementations/CategoriesRepository";
 import {ISpecificationsRepository} from "../../modules/cars/repositories/ISpecificationsRepository";
 import {SpecificationsRepository} from "../../modules/cars/repositories/Implementations/SpecificationsRepository";
+import {IUsersRepositories} from "../../modules/accounts/repositories/IUsersRepositories";
+import {UsersRepository} from "../../modules/accounts/repositories/implementations/UsersRepository";
 
-// @ts-ignore
 container.registerSingleton<ICategoriesRepository>("CategoriesRepository", CategoriesRepository);
-// @ts-ignore
 container.registerSingleton<ISpecificationsRepository>("SpecificationsRepository", SpecificationsRepository);
+container.registerSingleton<IUsersRepositories>("UsersRepository", UsersRepository);
