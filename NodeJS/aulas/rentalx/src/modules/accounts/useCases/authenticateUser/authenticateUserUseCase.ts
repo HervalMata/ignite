@@ -1,9 +1,8 @@
-import {inject, injectable} from "tsyringe";
-import {UsersRepository} from "../../repositories/implementations/UsersRepository";
 import {compare} from "bcryptjs";
 import {sign} from "jsonwebtoken";
+import {inject, injectable} from "tsyringe";
 import {AppError} from "../../../../errors/appError";
-
+import {UsersRepository} from "../../repositories/implementations/UsersRepository";
 
 interface IIrequest {
     email: string;
