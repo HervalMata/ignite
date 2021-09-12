@@ -3,8 +3,9 @@ import {sign} from "jsonwebtoken";
 import {inject, injectable} from "tsyringe";
 import {AppError} from "../../../../errors/appError";
 import {UsersRepository} from "../../repositories/implementations/UsersRepository";
+import {IUsersRepository} from "../../repositories/IUsersRepository";
 
-interface IIrequest {
+interface IRequest {
     email: string;
     password: string;
 }
@@ -21,10 +22,10 @@ interface IResponse {
 class AuthenticateUserUseCase {
     constructor(
         @inject("UsersRepository")
-        private usersRepository: UsersRepository
+        private usersRepository: IUsersRepository
     ) {
     }
-    async execute({ email, password }: IIrequest): Promise<IResponse> {
+    async execute({ email, password }: IRequest): Promise<IResponse> {
         const user = await this.usersRepository.findByEmail(email);
         if (!user) {
             throw new AppError("Email or password incorrect!");
