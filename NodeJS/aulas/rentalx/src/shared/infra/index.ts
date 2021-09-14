@@ -7,6 +7,8 @@ import {ISpecificationsRepository} from "../../modules/cars/repositories/ISpecif
 import {SpecificationsRepository} from "../../modules/cars/repositories/Implementations/SpecificationsRepository";
 import {ICarsRepository} from "../../modules/cars/repositories/ICarsRepository";
 import {CarsRepository} from "../../modules/cars/repositories/Implementations/CarsRepository";
+import {ICarsImagesRepository} from "../../modules/cars/repositories/ICarsImagesRepository";
+import {CarsImagesRepository} from "../../modules/cars/repositories/Implementations/CarsImagesRepository";
 
 
 
@@ -14,3 +16,4 @@ container.registerSingleton<ICategoriesRepository>("CategoriesRepository", Categ
 container.registerSingleton<ISpecificationsRepository>("SpecificationsRepository", SpecificationsRepository);
 container.registerSingleton<IUsersRepository>("UsersRepository", UsersRepository);
 container.registerSingleton<ICarsRepository>("CarsRepository", CarsRepository);
+container.registerSingleton<ICarsImagesRepository>("CarsImagesRepository", CarsImagesRepository);
