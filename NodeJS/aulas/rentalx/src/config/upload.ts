@@ -4,9 +4,10 @@ import { resolve } from "path";
 
 export default {
     upload(folder: string) {
+        const destination = resolve(__dirname, "..", "..", folder);
         return {
             storage: multer.diskStorage({
-                destination: resolve(__dirname, "..", "..", folder),
+                destination,
                 filename: (req, file, callback) => {
                     const fileHash = crypto.randomBytes(16).toString("hex");
                     const fileName = `${fileHash}-${file.originalname}`;

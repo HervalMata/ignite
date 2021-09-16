@@ -1,5 +1,6 @@
+import 'reflect-metadata';
 import {IRentalRepository} from "../../repositories/IRentalRepository";
-import {ICarsRepository} from "../../..//cars/repositories/ICarsRepository";
+import {ICarsRepository} from "../../../cars/repositories/ICarsRepository";
 import {IUsersRepository} from "../../../accounts/repositories/IUsersRepository";
 import {Rental} from "../../infra/typeorm/Rental";
 import {AppError} from "../../../../errors/appError";
@@ -58,7 +59,7 @@ class CreateRentalUseCase {
             car_id,
             expected_return_date
         });
-
+        await this.carsRepository.updateAvailability(car_id, false);
         return rental;
     }
 }
