@@ -11,6 +11,12 @@ import {ICarsImagesRepository} from "../../modules/cars/repositories/ICarsImages
 import {CarsImagesRepository} from "../../modules/cars/repositories/Implementations/CarsImagesRepository";
 import {IRentalRepository} from "../../modules/rentals/repositories/IRentalRepository";
 import {RentalsRepository} from "../../modules/rentals/repositories/implementations/RentalsRepository";
+import {IUsersTokensRepository} from "../../modules/accounts/repositories/IUsersTokensRepository";
+import {UsersTokensRepository} from "../../modules/accounts/repositories/implementations/UsersTokensRepository";
+import {IDateProvider} from "../container/providers/DateProvider/IDateProvider";
+import {DayJsDateProvider} from "../container/providers/DateProvider/implementations/DayJsDateProvider";
+import {IMailProvider} from "../container/providers/MailProvider/IMailProvider";
+import {EtherealMailProvider} from "../container/providers/MailProvider/implementations/EtherealMailProvider";
 
 
 
@@ -19,4 +25,7 @@ container.registerSingleton<ISpecificationsRepository>("SpecificationsRepository
 container.registerSingleton<IUsersRepository>("UsersRepository", UsersRepository);
 container.registerSingleton<ICarsRepository>("CarsRepository", CarsRepository);
 container.registerSingleton<ICarsImagesRepository>("CarsImagesRepository", CarsImagesRepository);
-container.registerSingleton<IRentalRepository>("RentalsRepository", RentalsRepository)
+container.registerSingleton<IRentalRepository>("RentalsRepository", RentalsRepository);
+container.registerSingleton<IUsersTokensRepository>("UsersTokensRepository", UsersTokensRepository);
+container.registerSingleton<IDateProvider>("DayJsDateProvider", DayJsDateProvider);
+container.registerInstance<IMailProvider>("EtherealMailProvider", new EtherealMailProvider());

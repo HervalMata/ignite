@@ -17,7 +17,7 @@ class CreateUserUseCase {
         if (userAlreadyExists) {
             throw new AppError("User Already exists");
         }
-        const passwordHash = await hash(password, 10);
+        const passwordHash = await hash(password, Number(process.env.DEFAULT_HASH_SALT));
         await this.usersRepository.create({
             name, password: passwordHash, email, driver_license
         })
