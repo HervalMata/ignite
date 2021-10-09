@@ -50,6 +50,6 @@ function Detail() {
             </S.Footer>
         </S.Container>
     );
-};
+}
 
 export default Detail;
