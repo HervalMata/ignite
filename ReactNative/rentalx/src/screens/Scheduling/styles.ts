@@ -8,7 +8,7 @@ export const Container = styled.View`
     `}   
 `
 
-export const Header = styled.Text`
+export const Header = styled.View`
     ${({ theme }) => css`
         width: 100%;
         height: 325px;
