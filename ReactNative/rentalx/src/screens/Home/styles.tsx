@@ -4,7 +4,7 @@ import {FlatList} from "react-native";
 
 export const Container = styled.View`
     ${({ theme }) => css`
-        background-color: ${ theme.colors?.background_primary};
+        background-color: ${ theme.colors.background_primary};
     `}   
 `
 
@@ -14,7 +14,7 @@ export const Header = styled.Text`
         height: 113px;
         padding: 32px 24px;
         justify-content: flex-end;
-        background-color: ${ theme.colors?.header};
+        background-color: ${ theme.colors.header};
     `}   
 `
 export const HeaderContent = styled.View`
@@ -26,7 +26,7 @@ export const HeaderContent = styled.View`
 export const TotalCar = styled.Text`
     ${({ theme }) => css`
         font-size: ${RFValue(15)}px;
-        font-family: ${theme.fonts?.family.inter.regular};
+        font-family: ${theme.fonts.family.inter.regular};
         color: ${theme.colors?.text};
     `}
 `

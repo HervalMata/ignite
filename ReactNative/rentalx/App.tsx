@@ -7,6 +7,7 @@ import AppLoading from "expo-app-loading";
 import { ThemeProvider } from "styled-components";
 import theme from "./src/styles/theme";
 import Detail from "./src/screens/Detail";
+import Scheduling from "./src/screens/Scheduling";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -20,7 +21,8 @@ export default function App() {
   return (
       <ThemeProvider theme={theme}>
           {/*<Home />*/}
-          <Detail />
+          {/*<Detail />*/}
+          <Scheduling />
       </ThemeProvider>
   )
 }
