@@ -9,6 +9,7 @@ import theme from "./src/styles/theme";
 import Detail from "./src/screens/Detail";
 import Scheduling from "./src/screens/Scheduling";
 import {SchedulingDetails} from "./src/screens/SchedulingDetail";
+import SchedulingComplete from "./src/screens/SchedulingComplete";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -21,7 +22,7 @@ export default function App() {
 
   return (
       <ThemeProvider theme={theme}>
-          <SchedulingDetails />
+          <SchedulingComplete />
       </ThemeProvider>
   )
 }
