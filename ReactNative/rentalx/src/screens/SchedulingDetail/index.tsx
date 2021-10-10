@@ -10,9 +10,15 @@ import exchangeSvg from "../../assets/exchange.svg";
 import peopleSvg from "../../assets/people.svg";
 import {Feather} from "@expo/vector-icons";
 import {RFValue} from "react-native-responsive-fontsize";
+import {useNavigation} from "@react-navigation/native";
 
 export function SchedulingDetails() {
     const theme = useTheme();
+    const navigation = useNavigation();
+    function handleConfirm() {
+        // @ts-ignore
+        navigation.navigate('SchedulingComplete')
+    }
     return (
         <S.Container>
             <S.Header>
@@ -74,7 +80,11 @@ export function SchedulingDetails() {
                 </S.RentalPrice>
             </S.Content>
             <S.Footer>
-                <Button title="Confirmar" />
+                <Button
+                    title="Confirmar"
+                    color={theme.colors.success}
+                    onPress={handleConfirm}
+                />
             </S.Footer>
         </S.Container>
     );

@@ -7,8 +7,14 @@ import forceSvg from '../../assets/force.svg'
 import gasolineSvg from '../../assets/gasoline.svg'
 import exchangeSvg from '../../assets/exchange.svg'
 import peopleSvg from '../../assets/people.svg'
+import {useNavigation} from "@react-navigation/native";
 
 function Detail() {
+    const navigation = useNavigation();
+    function handleConfirm() {
+        // @ts-ignore
+        navigation.navigate('Scheduling')
+    }
     return (
         <S.Container>
             <S.Header>
@@ -46,7 +52,7 @@ function Detail() {
                 </S.About>
             </S.Content>
             <S.Footer>
-                <Button title="Confirmar" />
+                <Button title="Escolher período do aluguel" onPress={handleConfirm} />
             </S.Footer>
         </S.Container>
     );

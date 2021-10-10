@@ -5,8 +5,14 @@ import {RFValue} from "react-native-responsive-fontsize";
 
 import * as S from './styles'
 import {CardCar} from "../../components";
+import {useNavigation} from "@react-navigation/native";
 
 export function Home() {
+    const navigation = useNavigation();
+    function handleCarDetail() {
+        // @ts-ignore
+        navigation.navigate('Detail')
+    }
     return (
         <S.Container>
             <StatusBar
@@ -29,7 +35,9 @@ export function Home() {
                                 name: 'RS S Coupé',
                                 rent: { period: 'Ao dia', price: 120},
                                 thumbnail: 'https://e7.pngegg.com/pngimages/889/300/png-clipart-audi-sportback-concept-car-audi-a3-2018-audi-a5-coupe-audi-compact-car-sedan.png'
-                            }} />
+                            }}
+                            onPress={handleCarDetail}
+                            />
                         )} />
         </S.Container>
     )
