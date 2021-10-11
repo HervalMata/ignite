@@ -1,12 +1,12 @@
-import React from 'react';
+import * as React from 'react';
+import 'react-native-gesture-handler';
 
+import { ThemeProvider } from "styled-components";
+import AppLoading from "expo-app-loading";
 import { useFonts, Inter_400Regular, Inter_500Medium } from "@expo-google-fonts/inter";
 import { Archivo_400Regular, Archivo_500Medium, Archivo_600SemiBold } from "@expo-google-fonts/archivo";
-import AppLoading from "expo-app-loading";
-import { ThemeProvider } from "styled-components";
-import theme from "./src/styles/theme";
 
-import 'react-native-gesture-handler';
+import theme from "./src/styles/theme";
 import Routes from './src/routes'
 
 export default function App() {

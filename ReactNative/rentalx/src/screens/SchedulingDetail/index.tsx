@@ -12,7 +12,7 @@ import {Feather} from "@expo/vector-icons";
 import {RFValue} from "react-native-responsive-fontsize";
 import {useNavigation} from "@react-navigation/native";
 
-export function SchedulingDetails() {
+function SchedulingDetail() {
     const theme = useTheme();
     const navigation = useNavigation();
     function handleConfirm() {
@@ -88,4 +88,6 @@ export function SchedulingDetails() {
             </S.Footer>
         </S.Container>
     );
-};
+}
+
+export default SchedulingDetail

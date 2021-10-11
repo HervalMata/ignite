@@ -1,19 +1,22 @@
+import * as React from "react";
+// @ts-ignore
 import {createStackNavigator} from "@react-navigation/stack";
-import {Home} from "../screens/Home";
+import Home from "../screens/Home";
 import Detail from "../screens/Detail";
 import Scheduling from "../screens/Scheduling";
-import {SchedulingDetails} from "../screens/SchedulingDetail";
+import SchedulingDetail from "../screens/SchedulingDetail";
 import SchedulingComplete from "../screens/SchedulingComplete";
 
 const { Navigator, Screen } = createStackNavigator();
 
 function StackRoutes() {
     return (
+        // @ts-ignore
         <Navigator headerMode="none">
             <Screen name="Home" component={Home} />
             <Screen name="Detail" component={Detail} />
             <Screen name="Scheduling" component={Scheduling} />
-            <Screen name="SchedulingDetail" component={SchedulingDetails} />
+            <Screen name="SchedulingDetail" component={SchedulingDetail} />
             <Screen name="SchedulingComplete" component={SchedulingComplete} />
         </Navigator>
     )

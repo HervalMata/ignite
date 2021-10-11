@@ -7,7 +7,7 @@ import * as S from './styles'
 import {CardCar} from "../../components";
 import {useNavigation} from "@react-navigation/native";
 
-export function Home() {
+function Home() {
     const navigation = useNavigation();
     function handleCarDetail() {
         // @ts-ignore
@@ -42,3 +42,5 @@ export function Home() {
         </S.Container>
     )
 }
+
+export default Home

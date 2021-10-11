@@ -1,3 +1,5 @@
+import React from 'react';
+// @ts-ignore
 import {NavigationContainer} from "@react-navigation/native";
 import StackRoutes from "./stack.routes";
 

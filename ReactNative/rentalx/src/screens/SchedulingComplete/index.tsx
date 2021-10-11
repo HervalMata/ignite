@@ -11,7 +11,7 @@ function SchedulingComplete() {
     const navigation = useNavigation();
     function handleConfirm() {
         // @ts-ignore
-        navigation.navigate("Home")
+        navigation.navigate('Home')
     }
     return (
         <S.Container>
