@@ -2,19 +2,10 @@ import * as S from './styles'
 import React from "react";
 import GasolineSvg from '../../assets/gasoline.svg'
 import {RectButtonProps} from "react-native-gesture-handler";
-
-type CarData = {
-    brand: string;
-    name: string;
-    rent: {
-        period: string;
-        price: number;
-    };
-    thumbnail: string;
-}
+import {ICarDTO} from "../../dtos/CarDTO";
 
 type CardCarProps = {
-    data: CarData;
+    data: ICarDTO;
 } & RectButtonProps;
 
 function CardCar({ data, ...rest }: CardCarProps) {

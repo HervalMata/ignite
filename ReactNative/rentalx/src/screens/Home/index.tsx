@@ -1,19 +1,43 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {StatusBar} from "react-native";
 import Logo from "../../assets/logo.svg";
 import {RFValue} from "react-native-responsive-fontsize";
 
 import * as S from './styles'
-import {CardCar} from "../../components";
+import {CardCar, Loading} from "../../components";
 import {useNavigation} from "@react-navigation/native";
+import {ICarDTO} from "../../dtos/CarDTO";
+import api from "../../services/api";
 
 function Home() {
-    const navigation = useNavigation();
-    function handleCarDetail() {
+  const navigation = useNavigation();
+  const [cars, setCars] = useState<ICarDTO[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    api.get<ICarDTO>('/cars')
+      .then(response => {
+        // @ts-ignore
+        setCars(response.data);
+      })
+      .catch(error => {
+        // eslint-disable-next-line no-console
+        console.log(error);
+      })
+      .finally(() =>  {
+        setLoading(false)
+      })
+  }, []);
+
+
+
+  function handleCarDetail() {
         // @ts-ignore
         navigation.navigate('Detail')
     }
-    return (
+
+
+  return (
         <S.Container>
             <StatusBar
                 barStyle="light-content" backgroundColor="transparent" translucent
@@ -27,18 +51,21 @@ function Home() {
                     <S.TotalCar>Total de 12 carros</S.TotalCar>
                 </S.HeaderContent>
             </S.Header>
-            <S.CardList data={[1,2,3,4,5,6]}
-                        keyExtractor={item => String(item)}
-                        renderItem={() => (
-                            <CardCar data={{
-                                brand: 'Audi',
-                                name: 'RS S Coupé',
-                                rent: { period: 'Ao dia', price: 120},
-                                thumbnail: 'https://e7.pngegg.com/pngimages/889/300/png-clipart-audi-sportback-concept-car-audi-a3-2018-audi-a5-coupe-audi-compact-car-sedan.png'
-                            }}
-                            onPress={handleCarDetail}
-                            />
-                        )} />
+          {loading ? (
+            <Loading />
+          ) : (
+            // @ts-ignore
+            <S.CardList data={cars}
+                        // @ts-ignore
+                        keyExtractor={item => item.id}
+                        renderItem={({ item }) => (
+                          // @ts-ignore
+                          <CardCar data={ item }
+                                   onPress={handleCarDetail}
+                          />
+            )} />
+          )}
+
         </S.Container>
     )
 }

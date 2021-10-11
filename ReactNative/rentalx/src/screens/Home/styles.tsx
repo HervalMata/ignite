@@ -4,8 +4,9 @@ import {FlatList} from "react-native";
 
 export const Container = styled.View`
     ${({ theme }) => css`
+        flex: 1;
         background-color: ${ theme.colors.background_primary};
-    `}   
+    `}
 `
 
 export const Header = styled.Text`
@@ -15,7 +16,7 @@ export const Header = styled.Text`
         padding: 32px 24px;
         justify-content: flex-end;
         background-color: ${ theme.colors.header};
-    `}   
+    `}
 `
 export const HeaderContent = styled.View`
     flex-direction: row;
