@@ -31,12 +31,13 @@ function Home() {
 
 
 
-  function handleCarDetail() {
+  function handleCarDetail(car: ICarDTO) {
         // @ts-ignore
-        navigation.navigate('Detail')
+        navigation.navigate('Detail', { car })
     }
 
 
+  // @ts-ignore
   return (
         <S.Container>
             <StatusBar
@@ -61,7 +62,8 @@ function Home() {
                         renderItem={({ item }) => (
                           // @ts-ignore
                           <CardCar data={ item }
-                                   onPress={handleCarDetail}
+                                    // @ts-ignore
+                                   onPress={() => handleCarDetail(item)}
                           />
             )} />
           )}
